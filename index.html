@@ -425,7 +425,7 @@ function checkPw(){
   if(val === PW){
     document.getElementById('pw-screen').classList.add('hidden');
     document.getElementById('main').classList.add('visible');
-    try{ localStorage.setItem('hb_access','1'); }catch(e){}
+    
   } else {
     err.classList.add('show');
     document.getElementById('pw-input').value='';
@@ -434,6 +434,12 @@ function checkPw(){
 }
 document.addEventListener('DOMContentLoaded',function(){
   document.getElementById('pw-input').addEventListener('keydown',function(e){ if(e.key==='Enter') checkPw(); });
-  try{ if(localStorage.getItem('hb_access')==='1'){ document.getElementById('pw-screen').classList.add('hidden'); document.getElementById('main').classList.add('visible'); } }catch(e){}
+  
 });
+
+function sendMail(){
+  var u='hello';
+  var d='harborly.eu';
+  window.location.href='mailto:'+u+'@'+d;
+}
 </script>
