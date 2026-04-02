@@ -437,9 +437,13 @@ document.addEventListener('DOMContentLoaded',function(){
   
 });
 
-function sendMail(){
-  var u='hello';
-  var d='harborly.eu';
-  window.location.href='mailto:'+u+'@'+d;
-}
+document.querySelectorAll('[data-email]').forEach(function(el){
+  el.addEventListener('click',function(e){
+    e.preventDefault();
+    var p1='hello';
+    var p2='harborly';
+    var p3='eu';
+    window.location.href='mailto:'+p1+'@'+p2+'.'+p3;
+  });
+});
 </script>
