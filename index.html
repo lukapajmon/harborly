@@ -417,10 +417,23 @@ footer{
 
 </div><!-- /main -->
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const CORRECT = "adriatic2025";
-
+<script data-cfasync="false">
+var PW = ["a","d","r","i","a","t","i","c","2","0","2","5"].join("");
 function checkPw(){
-  const val = document.getElementById('pw-input').value.trim();
-  const err = document.getElementById('pw-error');
-  if(val.toLowerCase
+  var val = document.getElementById('pw-input').value.trim();
+  var err = document.getElementById('pw-error');
+  if(val === PW){
+    document.getElementById('pw-screen').classList.add('hidden');
+    document.getElementById('main').classList.add('visible');
+    try{ localStorage.setItem('hb_access','1'); }catch(e){}
+  } else {
+    err.classList.add('show');
+    document.getElementById('pw-input').value='';
+    setTimeout(function(){ err.classList.remove('show'); },2500);
+  }
+}
+document.addEventListener('DOMContentLoaded',function(){
+  document.getElementById('pw-input').addEventListener('keydown',function(e){ if(e.key==='Enter') checkPw(); });
+  try{ if(localStorage.getItem('hb_access')==='1'){ document.getElementById('pw-screen').classList.add('hidden'); document.getElementById('main').classList.add('visible'); } }catch(e){}
+});
+</script>
