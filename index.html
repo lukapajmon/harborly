@@ -337,8 +337,8 @@ footer{
   <div class="hero-rule"></div>
   <p class="hero-desc">Harborly connects yacht and boat owners with certified service providers across the Adriatic coast. Request services, compare quotes, manage your vessel history — all in one place.</p>
   <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0">
-    <a href="/cdn-cgi/l/email-protection#3c54595050537c545d4e5e534e5045125949034f495e56595f4801734b52594e1c795d4e50451c7d5f5f594f4f" class="hero-cta">Request early access</a>
-    <a href="/cdn-cgi/l/email-protection#274f424b4b48674f46554548554b5e094252185452454d4244531a775548514e4342550777465553494255076e4956524e555e" class="hero-cta-ghost">Become a provider</a>
+    <button onclick="scrollToContact()" class="hero-cta" style="cursor:pointer">Request Early Access</button>
+    <button onclick="scrollToContact()" class="hero-cta-ghost" style="cursor:pointer">Become a Provider</button>
   </div>
 </div>
 
@@ -430,6 +430,11 @@ footer{
 
 <script data-cfasync="false">
 var PW = ["a","d","r","i","a","t","i","c","2","0","2","5"].join("");
+
+function scrollToContact(){
+  var el = document.getElementById('contact');
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
 function checkPw(){
   var val = document.getElementById('pw-input').value.trim();
   var err = document.getElementById('pw-error');
